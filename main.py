@@ -101,6 +101,7 @@ class LookingAtYou(QWidget):
 		palette.setColor(self.backgroundRole(), QColor(0, 0, 0))
 		self.setPalette(palette)
 		self.setAutoFillBackground(True)
+		self.setWindowFlags(Qt.WindowStaysOnTopHint)
 
 		self.autorunthread = AutoRunThread(self)
 		self.stopDetect.connect(self.autorunthread.stop)
