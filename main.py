@@ -136,21 +136,19 @@ class LookingAtYou(QWidget):
 		spanAngle = SPAN_ANGLE * ANGLE_MULTIPLE
 		painter.drawArc(ARC_POS_X, -ARC_POS_Y, self.width, self.height, startAngle, spanAngle)
 
-		if self.face >= 1:
-			painter.setPen(gray)
-			painter.setBrush(gray)
-			painter.drawEllipse((self.width-OUTTER_CIRCLE_D)/2, (self.height-OUTTER_CIRCLE_D)/2, OUTTER_CIRCLE_D, OUTTER_CIRCLE_D)
-			painter.setPen(black)
-			painter.setBrush(black)
-			x = (self.center_x * 2 / self.width) - 1
-			y = (self.center_y * 2 / self.height) - 1
-			xx = x * ((1 - y*y/2) ** 0.5)
-			yy = y * ((1 - x*x/2) ** 0.5)
-			# print ("x: %.3f y: %.3f" % (x, y))
-			print ("xx: %.3f yy: %.3f" % (xx, yy))
-			painter.drawEllipse(self.center[0]+int((xx-0.5)*INNER_CIRCLE_D), self.center[1]+int((yy-0.5)*INNER_CIRCLE_D), INNER_CIRCLE_D, INNER_CIRCLE_D)
-		else:
-			pass
+		painter.setPen(gray)
+		painter.setBrush(gray)
+		painter.drawEllipse((self.width-OUTTER_CIRCLE_D)/2, (self.height-OUTTER_CIRCLE_D)/2, OUTTER_CIRCLE_D, OUTTER_CIRCLE_D)
+		painter.setPen(black)
+		painter.setBrush(black)
+		x = (self.center_x * 2 / self.width) - 1
+		y = (self.center_y * 2 / self.height) - 1
+		xx = x * ((1 - y*y/2) ** 0.5)
+		yy = y * ((1 - x*x/2) ** 0.5)
+		# print ("x: %.3f y: %.3f" % (x, y))
+		print ("xx: %.3f yy: %.3f" % (xx, yy))
+		painter.drawEllipse(self.center[0]+int((xx-0.5)*INNER_CIRCLE_D), self.center[1]+int((yy-0.5)*INNER_CIRCLE_D), INNER_CIRCLE_D, INNER_CIRCLE_D)
+
 		painter.end()
 
 
